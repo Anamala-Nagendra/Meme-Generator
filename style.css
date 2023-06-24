@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;600&family=Kanit:wght@300&family=Nunito:wght@300;400&family=Rajdhani:wght@500&family=Ubuntu&display=swap');
+*{
+    font-family: comfortaa;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    background: linear-gradient(45deg, rgb(221, 95, 41), rgb(223, 201, 184),orange);
+}
+#image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  width: fit-content;
+  margin: 0px auto;
+  
+}
+
+#canvas {
+  border: 1px solid #ccc;
+}
+
+#top-text-input,#bottom-text-input {
+  margin-top: 20px;
+  width:90%;
+}
+
+#download-button {
+  margin-top: 20px;
+}
+
+input{
+   
+ background-color: rgb(240, 247, 244);
+  outline: none;
+  font-size: 12px;
+ padding: 15px 35px; 
+ border: 1px solid #ccc;
+ color:rgb(9, 9, 37);
+ cursor: pointer;
+ border-radius: 33px; 
+font-family: arial,sans-serif;
+box-shadow: 0 0 5px rgba(106, 76, 175, 0.6);
+}
+
+button,a {
+background-color:rgb(61, 61, 214); 
+border: none; 
+color: white;
+padding: 8px 13px; 
+text-align: center; 
+display: inline-block; 
+text-decoration: none;
+font-size: 15px; 
+cursor: pointer; 
+border-radius: 25px; 
+font-weight: 300;
+margin-top: 6px;
+
+}
+button:hover {
+background-color:rgb(9, 9, 162); 
+}
+
+
+h1{
+text-align: center;
+font-family: comfortaa;
+margin: 0px auto;
+font-size: 45px;
+font-weight: bolder;
+text-transform: uppercase;
+word-spacing: 4px;
+height: 55px;
+padding: 4.5px;
+text-shadow: 0px 0px 4px #4a2020;
+width: 100%;
+background:rgb(236, 166, 36);
+color: white;
+box-shadow: 0px 0px 12px rgba(105, 73, 3, 0.925);
+letter-spacing: .2px;
+}

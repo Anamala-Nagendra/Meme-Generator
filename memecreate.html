@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Text Editor</title>
+ 
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Meme generator</h1>
+  <div id="image-container">
+    <div style="display: flex; column-gap: 30px;">
+      <input type="text" id="top-text-input" placeholder="Enter text on top " required>
+      <input type="text" id="bottom-text-input" placeholder="Enter text on bottom" required>
+     </div>
+      <button id="apply-button">Apply Text</button>
+    <canvas id="canvas"width="400" height="360" style="padding:1px; margin-top: 9px; background-color: rgb(236, 227, 227);  border-radius: 12px; box-shadow: 0 0 9px rgba(18, 17, 19, 0.6);" ></canvas>
+    <div style="margin-bottom: 20px;">
+    <a href="#" id="download-button" download="modified-image.png" style="margin-top: 12px;">Download Image</a>
+    <button id="nextImage">Next Image</button>
+  </div>
+ </div> 
+
+  <script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    var image = new Image();
+    var toptextInput = document.getElementById("top-text-input");
+    var bottomtextInput = document.getElementById("bottom-text-input");
+    var applyButton = document.getElementById("apply-button");
+    var downloadButton = document.getElementById("download-button");
+    var nextImage = document.getElementById("nextImage");
+
+
+    const imagesArray=
+                        [
+                        {"picture":"./images/picture1.jpg","id":1},
+                        {"picture":"./images/picture2.jpg","id":2},
+                        {"picture":"./images/picture3.jpg","id":3},
+                        {"picture":"./images/picture4.jpg","id":4},
+                        {"picture":"./images/picture5.jpg","id":5},
+                        {"picture":"./images/picture6.jpg","id":6},
+                        {"picture":"./images/picture7.jpg","id":7},
+                        {"picture":"./images/picture8.jpg","id":8},
+                        {"picture":"./images/picture9.jpg","id":9},
+                        {"picture":"./images/picture10.jpg","id":10}
+                        ];
+//Randomly generating the images on canvas
+nextImage.addEventListener('click', function(event){
+    event.preventDefault(); 
+    let randomImage= imagesArray[Math.floor(Math.random()*imagesArray.length)].picture;
+     newImage=randomImage;
+     image.src=newImage;
+    
+})
+
+    image.onload = function() {
+      context.drawImage(image, 0,0,canvas.width, canvas.height);
+      applyButton.addEventListener("click", function() {
+        var toptext = toptextInput.value;
+        var bottomtext = bottomtextInput.value;
+        context.font = "18px Impact";
+        context.fillStyle = "white";
+        context.fillText(toptext, 100, 20);
+        context.fillText(bottomtext, 150,355);
+      });
+
+     //Downloading the image file
+      downloadButton.addEventListener("click", function() {
+        var dataURL = canvas.toDataURL("image/png");
+        downloadButton.href = dataURL;
+      });
+    };
+
+    // Set the image source
+    image.src = "./images/picture8.jpg";
+  </script>
+</body>
+</html>
